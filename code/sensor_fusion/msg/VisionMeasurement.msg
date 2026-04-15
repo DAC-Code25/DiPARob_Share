@@ -1,0 +1,6 @@
+Header header
+float32 lateral_error
+float32 heading_error
+float32 centerline_heading
+float32 lookahead_distance
+float32 confidence

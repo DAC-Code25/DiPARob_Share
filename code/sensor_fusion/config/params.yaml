@@ -1,0 +1,233 @@
+# Public-release parameter template.
+# Replace the released device paths, network endpoints and map-registration values
+# with reviewed site-specific settings before running against real hardware.
+rtk:
+  front_port: /path/to/front_rtk_device
+  rear_port: /path/to/rear_rtk_device
+  baudrate: 115200
+  soft_quality_gate: true
+  accuracy_threshold: 4
+  min_satellites: 18
+  antenna_offset:
+    x: 0.30
+    y: 0.0
+    theta: 0.0
+  rtk_baseline_distance: 0.60
+  rtk_baseline_tolerance: 0.10
+  rtk_baseline_soft_tolerance: 0.10
+  rtk_baseline_hard_tolerance: 0.20
+  rtk_baseline_soft_limit: 0.24
+  rtk_baseline_hard_limit: 0.36
+  rtk_heading_consistency_deg: 55.0
+  rtk_heading_relax_speed: 0.05
+  rtk_baseline_course_consistency_deg: 10.0
+  rtk_baseline_degraded_front_penalty: 0.6
+  rtk_preference_enabled: true
+  rtk_preference_ema_alpha: 0.05
+  rtk_preference_penalty_scale: 0.8
+  rtk_preference_residual_good_m: 0.08
+  rtk_preference_residual_bad_m: 0.30
+  rtk_preference_max_penalty: 2.0
+  rtk_nis_gate_2d: 9.21
+  rtk_nis_gate_3d: 11.34
+  rtk_selector_hold_frames: 5
+  rtk_selector_switch_penalty: 0.5
+  rtk_no_heading_position_noise_scale_min: 20.0
+  rtk_no_heading_position_noise_scale_max: 200.0
+  rtk_stationary_speed_threshold: 0.10
+  rtk_stationary_position_noise_scale: 50.0
+  rtk_stationary_release_time_s: 2.0
+  rtk_turn_speed_threshold: 0.0
+  rtk_turn_yaw_rate_threshold: 0.08
+  rtk_turn_position_noise_scale: 4.0
+  rtk_single_step_jump_threshold_m: 0.30
+  rtk_single_step_jump_max_dt_s: 0.5
+  rtk_single_step_hold_s: 2.0
+  rtk_single_step_score_penalty: 0.8
+
+imu:
+  topic: /imu/data
+  lever_arm:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  bias:
+    ax: 0.0
+    ay: 0.0
+    az: 0.0
+    gx: 0.0
+    gy: 0.0
+    gz: 0.0
+
+encoder:
+  websocket_url: ws://encoder-host.example.invalid:1202/encoder
+  wheel_base: 0.25
+  wheel_diameter: 0.20
+  ticks_per_rev: 65536
+  ticks_velocity_min_dt_s: 0.005
+  ticks_velocity_max_dt_s: 0.5
+  max_velocity: 1.5
+  max_velocity_difference: 1.0
+  wheel_slip_enabled: true
+  wheel_slip_min_speed_mps: 0.05
+  wheel_slip_yaw_rate_diff_threshold: 0.35
+  wheel_slip_yaw_rate_rel_threshold: 0.7
+  wheel_slip_ema_alpha: 0.2
+  wheel_slip_encoder_weight_floor_scale: 0.25
+  wheel_slip_nonholonomic_noise_scale_max: 15.0
+
+network:
+  post_url: http://receiver.example.invalid:9999/fusion
+  send_frequency: 10
+  output_precision: 3
+  output_predict_enabled: false
+  output_predict_max_dt_s: 0.10
+  output_smooth_enabled: false
+  output_smooth_alpha: 0.95
+  map_output:
+    enabled: false
+    input_is_wgs84: true
+    swap_xy: false
+    origin_latitude: 0.0
+    origin_longitude: 0.0
+    xdir: 1
+    ydir: 1
+    thetadir: 1
+    poseX: 0.0
+    poseY: 0.0
+    poseTheta: 0.0
+
+ekf:
+  process_noise:
+    position: 0.10
+    velocity: 0.50
+    acceleration: 1.00
+  measurement_noise:
+    rtk_position: 0.05
+    rtk_orientation: 0.02
+    imu_angular_velocity: 0.01
+    imu_linear_acceleration: 0.10
+    encoder_velocity: 0.02
+
+ukf:
+  process_noise:
+    position: 0.35
+    velocity: 0.40
+    acceleration: 0.25
+  measurement_noise:
+    rtk_position: 0.12
+    rtk_orientation: 0.03
+    imu_angular_velocity: 0.01
+    imu_linear_acceleration: 0.12
+    encoder_velocity: 0.03
+  alpha: 0.001
+  beta: 2.0
+  kappa: 0.0
+
+origin:
+  latitude: 0.0
+  longitude: 0.0
+
+health_monitor:
+  rtk_residual_threshold: 6.0
+  encoder_mismatch_threshold: 0.18
+  rtk_residual_window: 30
+  encoder_mismatch_window: 30
+  residual_soft_reset_multiplier: 2.0
+  residual_surge_limit: 5
+  recovery_release_ratio: 0.55
+
+fusion:
+  algorithm: ukf
+  enable_zero_velocity_update: true
+  coordinate_cache_size: 150
+  zero_velocity_hold_time: 0.8
+  zero_velocity_speed_threshold: 0.01
+  output_stationary_hold_enabled: true
+  output_stationary_speed_threshold: 0.01
+  output_stationary_hold_time_s: 0.2
+  output_pivot_hold_enabled: true
+  output_pivot_linear_threshold: 0.02
+  output_pivot_yaw_rate_threshold: 0.08
+  max_position_jump: 0.10
+  output_smoothing_alpha: 0.65
+  hold_speed_threshold: 0.0
+  straight_yaw_smoothing_enabled: false
+  straight_yaw_speed_threshold: 0.05
+  straight_yaw_rate_threshold: 0.25
+  straight_yaw_prev_weight: 0.985
+  straight_yaw_jump_limit_rad: 0.05
+  straight_yaw_severity_max: 1.0
+  straight_yaw_course_pull_enabled: true
+  straight_yaw_course_gain: 0.65
+  straight_yaw_course_max_error_rad: 1.0
+  straight_pos_smoothing_enabled: false
+  straight_pos_lateral_step_scale: 0.20
+  straight_pos_lateral_step_scale_degraded: 0.07
+  straight_pos_lateral_decay_degraded: 0.03
+  straight_pos_lateral_abs_limit_m: 0.07
+  straight_pos_dir_update_alpha: 0.01
+  straight_pos_dir_min_step_m: 0.02
+  straight_pos_dir_lock_distance_m: 1.0
+  straight_pos_frame_keep_s: 120.0
+  publish_predict_odom: true
+  predict_odom_topic: /sensor_fusion/odom_predict
+  predict_odom_max_rate_hz: 50.0
+  fallback_heading_process_noise: 0.015
+  fallback_heading_noise: 0.015
+  fallback_heading_noise_max: 0.80
+  fallback_heading_bias_alpha: 0.03
+  fallback_heading_velocity_noise: 0.07
+  fallback_heading_velocity_speed_threshold: 0.03
+  fallback_course_window_s: 2.0
+  fallback_course_min_distance_m: 0.10
+  fallback_course_gain: 0.65
+  nonholonomic_enabled: true
+  nonholonomic_lateral_velocity_noise: 0.05
+  nonholonomic_speed_threshold: 0.05
+  continuous_yaw_output: false
+  bootstrap_frames: 4
+  bootstrap_max_residual: 6.0
+  startup_warmup_time: 5.0
+  startup_alignment_samples: 30
+  use_hardware_sources: false
+  enable_network_sender: false
+
+vision_constraint:
+  enabled: false
+  measurement_topic: /sensor_fusion/vision_measurement
+  confidence_threshold: 0.50
+  measurement_timeout: 0.6
+  lateral_gain: 0.8
+  heading_gain: 0.0
+  max_lateral_correction: 0.05
+  max_heading_correction_deg: 10.0
+  max_lateral_error: 0.20
+  max_heading_error_deg: 15.0
+  min_lookahead_for_heading: 0.25
+  nis_gate_3d: 7.81
+  dynamic_noise: true
+  noise_scale_min: 0.8
+  noise_scale_max: 3.0
+  boost_when_rtk_degraded: true
+  degraded_noise_scale: 0.7
+  degraded_max_lateral_correction: 0.15
+  degraded_max_heading_correction_deg: 6.0
+  invert_lateral: false
+  invert_heading: false
+  apply_camera_extrinsics: true
+  pose_noise:
+    position: 0.04
+    position_along: 2.0
+    heading_deg: 2.0
+  suppress_turning: true
+  turn_linear_thresh: 0.05
+  turn_angular_thresh: 0.3
+  camera_extrinsics:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    roll_deg: 0.0
+    pitch_deg: 0.0
+    yaw_deg: 0.0
+  apply_post_correction: false

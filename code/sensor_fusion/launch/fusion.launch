@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="param_file" default="$(find sensor_fusion)/config/params.yaml" />
+  <arg name="start_rviz" default="false" />
+
+  <node name="fusion_node" pkg="sensor_fusion" type="fusion_node" output="screen">
+    <param name="param_file" value="$(arg param_file)" />
+  </node>
+
+  <node if="$(arg start_rviz)" pkg="rviz" type="rviz" name="sensor_fusion_rviz"
+        args="-d $(find sensor_fusion)/rviz/fusion.rviz" />
+</launch>

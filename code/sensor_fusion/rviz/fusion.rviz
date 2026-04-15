@@ -1,0 +1,41 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: odom
+  Displays:
+    - Class: rviz/TF
+      Enabled: true
+      Name: TF
+    - Class: rviz/Odometry
+      Enabled: true
+      Name: Raw Odom
+      Topic: /sensor_fusion/odom_raw
+      Shape: Arrow
+      Axes Length: 0.6
+      Axes Radius: 0.03
+    - Class: rviz/Odometry
+      Enabled: true
+      Name: Centered Odom
+      Topic: /sensor_fusion/odom_centered
+      Shape: Arrow
+      Axes Length: 0.6
+      Axes Radius: 0.03
+  Tools:
+    - Class: rviz/Interact
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 5.0
+      Pitch: 0.6
+      Yaw: 0.0

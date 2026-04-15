@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sensor_fusion</name>
+  <version>0.0.1</version>
+  <description>ROS1 sensor fusion package for dual-RTK, IMU and wheel encoder odometry.</description>
+  <maintainer email="mrzhj170@outlook.com">ZHLY</maintainer>
+  <author>ZHLY</author>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>message_filters</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>libjsoncpp-dev</build_depend>
+  <build_depend>libwebsocketpp-dev</build_depend>
+  <build_depend>libboost-system-dev</build_depend>
+  <build_depend>libcurl4-openssl-dev</build_depend>
+  <build_depend>libeigen3-dev</build_depend>
+  <build_depend>libgeographic-dev</build_depend>
+  <build_depend>libyaml-cpp-dev</build_depend>
+  
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>nav_msgs</build_export_depend>
+  <build_export_depend>tf2</build_export_depend>
+  <build_export_depend>tf2_ros</build_export_depend>
+  <build_export_depend>message_filters</build_export_depend>
+  <build_export_depend>libjsoncpp-dev</build_export_depend>
+  <build_export_depend>libwebsocketpp-dev</build_export_depend>
+  <build_export_depend>libboost-system-dev</build_export_depend>
+  <build_export_depend>libcurl4-openssl-dev</build_export_depend>
+  <build_export_depend>libeigen3-dev</build_export_depend>
+  <build_export_depend>libgeographic-dev</build_export_depend>
+  <build_export_depend>libyaml-cpp-dev</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>tf2</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>libjsoncpp-dev</exec_depend>
+  <exec_depend>libwebsocketpp-dev</exec_depend>
+  <exec_depend>libboost-system-dev</exec_depend>
+  <exec_depend>libcurl4-openssl-dev</exec_depend>
+  <exec_depend>libgeographic-dev</exec_depend>
+  <exec_depend>libyaml-cpp-dev</exec_depend>
+</package>

@@ -13,7 +13,9 @@ import zipfile
 import xml.etree.ElementTree as ET
 
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
+RAW_DIR = BASE_DIR / "data" / "experiment_01" / "raw"
+PROCESSED_DIR = BASE_DIR / "data" / "experiment_01" / "processed"
 INPUT_FILE_CANDIDATES = ("Test_Log.xlsx", "Test_Log（1.22）.xlsx")
 
 WHEELBASE_M = 0.80
@@ -84,7 +86,7 @@ class ExcelCell:
     style: int = STYLE_TEXT
 
 
-def find_input_workbook(base_dir: Path = BASE_DIR) -> Path:
+def find_input_workbook(base_dir: Path = RAW_DIR) -> Path:
     """Return the raw workbook path, preferring the expected file names."""
 
     for file_name in INPUT_FILE_CANDIDATES:
@@ -686,8 +688,8 @@ def main() -> None:
     input_workbook = find_input_workbook()
     calculated_rows, point_summary, speed_summary = build_outputs(input_workbook)
 
-    full_data_path = BASE_DIR / FULL_DATA_OUTPUT
-    statistics_path = BASE_DIR / STATISTICS_OUTPUT
+    full_data_path = PROCESSED_DIR / FULL_DATA_OUTPUT
+    statistics_path = PROCESSED_DIR / STATISTICS_OUTPUT
 
     write_xlsx(full_data_path, [calculated_data_sheet(calculated_rows)])
     write_xlsx(

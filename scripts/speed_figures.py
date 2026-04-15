@@ -18,9 +18,9 @@ from PIL import Image, PngImagePlugin
 from matplotlib.lines import Line2D
 
 
-BASE_DIR = Path(__file__).resolve().parent
-DEFAULT_STATISTICS_XLSX = BASE_DIR / "error_statistics.xlsx"
-DEFAULT_OUT_DIR = BASE_DIR
+BASE_DIR = Path(__file__).resolve().parent.parent
+DEFAULT_STATISTICS_XLSX = BASE_DIR / "data" / "experiment_01" / "processed" / "error_statistics.xlsx"
+DEFAULT_OUT_DIR = BASE_DIR / "data" / "experiment_01" / "figures"
 MAIN_NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main"
 OFFICE_REL_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 PACKAGE_REL_NS = "http://schemas.openxmlformats.org/package/2006/relationships"
