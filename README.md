@@ -1,24 +1,24 @@
 # Partial Public Release
 
-本仓库对应论文 *A narrow inter-row mobile platform with robust multi-sensor fusion navigation for greenhouse tomato phenotyping* 的部分公开材料，仅用于论文相关方法、结果与公开代码的学术查阅。
+[中文说明](README.zh-CN.md)
 
 This repository contains a partial public release associated with the paper *A narrow inter-row mobile platform with robust multi-sensor fusion navigation for greenhouse tomato phenotyping*. It is intended for academic inspection of selected methods, released code and released experimental materials.
 
 ## Scope
 
-当前仓库仅公开以下内容：
+This repository currently releases only the following materials:
 
-- 论文相关的部分代码
-- 部分实验原始数据、统计结果与图表
-- 用于误差计算和绘图的辅助脚本
-- 部分实验视频
+- Selected code related to the paper
+- Selected raw experimental data, statistical results and figures
+- Auxiliary scripts for error calculation and figure generation
+- Selected experimental videos
 
-以下内容不在当前公开范围内：
+The following materials are outside the current public release:
 
-- 完整工程代码与全部部署链路
-- 全量实验原始数据
-- 完整设备配置、场地注册信息与私有接口
-- 全部实验视频与项目内部文档
+- Complete engineering code and the full deployment pipeline
+- Full raw experimental datasets
+- Complete device configuration, site registration information and private interfaces
+- All experimental videos and internal project documents
 
 This repository is not the complete project release. Only selected code, selected datasets, selected figures, selected videos and auxiliary scripts required for academic inspection are included.
 
@@ -43,8 +43,6 @@ This repository is not the complete project release. Only selected code, selecte
 
 ## Released Code
 
-公开代码位于 `code/sensor_fusion/`，仅代表论文方法中可公开的融合算法实现子集，不对应完整工程。
-
 The code in `code/sensor_fusion/` is a released subset rather than the complete project codebase. Deployment-specific modules, private integration logic and unreleased engineering components are not included.
 
 ## Released Data
@@ -56,7 +54,7 @@ The code in `code/sensor_fusion/` is a released subset rather than the complete 
 - Summary statistics: `data/experiment_01/processed/error_statistics.xlsx`
 - Figures: `data/experiment_01/figures/Figure_generated.png`, `data/experiment_01/figures/Figure_generated.tif`
 
-实验一中的横向误差与航向误差由 `scripts/calculate_error.py` 从原始工作簿计算得到，统计图由 `scripts/speed_figures.py` 根据统计结果生成。
+The lateral and heading errors in Experiment I are calculated from the raw workbook by `scripts/calculate_error.py`, and the statistical figure is generated from the statistical results by `scripts/speed_figures.py`.
 
 ### Experiment II
 
@@ -72,5 +70,5 @@ The code in `code/sensor_fusion/` is a released subset rather than the complete 
 
 ## Notes
 
-- 仓库中的公开材料用于论文审阅、方法理解与结果说明，不应视为完整可部署工程。
-- 实验二原始传感器 bag 数据集因文件体积限制未纳入仓库；如有学术核验或方法复现实验需要，可通过正式沟通渠道按需提供。
+- The released materials in this repository are intended for paper review, method understanding and result explanation, and should not be regarded as a complete deployable project.
+- The original Experiment II sensor bag dataset is not included because of file size limitations. It may be provided separately through formal communication channels when academic verification or method reproduction is required.
