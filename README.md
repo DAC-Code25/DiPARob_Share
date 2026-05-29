@@ -39,7 +39,7 @@ This repository is not the complete project release. Only selected code, selecte
 - `data/experiment_02/metadata/`
   Minimal metadata accompanying the released Experiment II data.
 - `media/videos/`
-  Released video materials.
+  Released video materials, including acquisition-module camera footage and autonomous inter-row switching tests.
 
 ## Released Code
 
@@ -64,6 +64,11 @@ The code in `code/sensor_fusion/` is a released subset rather than the complete 
 - When necessary for academic verification or method comparison, the Experiment II bag data may be provided separately on request.
 - Minimal metadata: `data/experiment_02/metadata/`
 - Partial videos: `media/videos/`
+
+## Released Videos
+
+- `media/videos/Test_Video_1.mp4`: camera-view footage captured by the data acquisition module.
+- `media/videos/Test_Video_2.mp4`: test video showing autonomous navigation during switching between adjacent tomato rows.
 
 ## Notes
 
